@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>متابعة العمل الحكومي الموريتاني</title>
+
+<!-- Google Font: Tajawal -->
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary: #0a2a43;
+  --primary-light: #1d4e89;
+  --accent: #00a2ff;
+  --bg: #f7f9fc;
+  --white: #ffffff;
+  --radius: 18px;
+}
+
+/* GLOBAL */
+body {
+  font-family: "Tajawal", sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: var(--primary);
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* LAYOUT */
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* HEADER */
+header {
+  background: var(--white);
+  padding: 15px 5px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.1);
+  border-radius: 0 0 20px 20px;
+}
+
+header img {
+  margin: 6px;
+  border-radius: var(--radius);
+  transition: transform .3s;
+}
+header img:hover {
+  transform: scale(1.05);
+}
+
+/* TITEL */
+h1 {
+  font-size: 2.3rem;
+  margin: 20px 0;
+  font-weight: bold;
+  color: var(--primary-light);
+}
+hr {
+  width: 80%;
+  border: 1px solid var(--primary-light);
+}
+
+/* COUNTDOWN */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+.box {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  transition: transform .3s;
+}
+.box:hover {
+  transform: translateY(-5px);
+}
+
+.number {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: var(--primary-light);
+}
+.label {
+  color: var(--accent);
+  font-size: .9rem;
+  font-weight: bold;
+}
+
+/* TABLE */
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 40px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  font-size: 1rem;
+}
+
+thead th {
+  background: var(--primary-light);
+  color: var(--white);
+  padding: 12px 8px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  font-size: 1.1rem;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+tr:hover {
+  background: #eef6ff;
+}
+
+tfoot td {
+  background: #dff2ff;
+  font-weight: bold;
+}
+
+/* Werbung */
+.ad {
+  background: var(--primary-light);
+  color: var(--white);
+  width: 130px;
+  min-height: 600px;
+  border-radius: var(--radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin: 10px;
+}
+
+/* MOBILE */
+@media(max-width: 1100px) {
+  .ad { display: none; }
+}
+</style>
+
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- Werbung links -->
+  <div class="ad">إعلان</div>
+
+  <div class="content">
+
+<header>
+  <div>
+    <img src="https://www.peches.gov.mr/IMG/jpg/radeflottartisanale.jpg" width="130" height="100" alt="">
+    <img src="https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2010/12/close-up_of_the_richat_structure/10279708-2-eng-GB/Close-up_of_the_Richat_structure_pillars.jpg" width="130" height="100" alt="">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Chinguetti_old_town.jpg" width="130" height="100" alt="">
+    <img src="https://t3.ftcdn.net/jpg/02/06/13/90/360_F_206139065_H0Pu1fJ0rpKHfEI5ZuRBYz6xnJvF34SA.jpg" width="130" height="100" alt="">
+    <img src="https://www.shipntrain.ch/fileadmin/_processed_/1/c/csm_Erzzug_Mauretanien_1920_d5f3148717.jpg" width="130" height="100" alt="">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Babab%C3%A9.jpg" width="130" height="100" alt="">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/The_Mosque_of_Tichitt.jpg/2560px-The_Mosque_of_Tichitt.jpg" width="130" height="100" alt="">
+	
+  </div>
+</header>
+
+<main>
+<h1>متابعة العمل الحكومي الموريتاني</h1>
+<hr>
+
+<!-- Countdown -->
+<div class="countdown">
+  <div class="box"><span class="number" id="days">0</span><span class="label">يوم</span></div>
+  <div class="box"><span class="number" id="hours">0</span><span class="label">ساعة</span></div>
+  <div class="box"><span class="number" id="minutes">0</span><span class="label">دقيقة</span></div>
+  <div class="box"><span class="number" id="seconds">0</span><span class="label">ثانية</span></div>
+</div>
+
+<p><strong>الباقي من الزمن على فترة الرئيس غزواني الأخير</strong></p>
+
+<!-- Projekte Bereich -->
+<section id="projects-container"></section>
+
+<h2>جدول أموال المساعدات</h2>
+
+<div style="margin:15px 0; padding:15px; background:#f4f6fa; border-radius:10px; text-align:right; box-shadow:0 2px 6px rgba(0,0,0,0.1); font-size:1.1em; color:#191970; direction:rtl;">
+  🇲🇷 يمكنكم التواصل معنا لمساعدتنا في تحسين واستكمال عمليات المراقبة<br>
+  📧 البريد الإلكتروني: 
+  <a href="mailto:fairmauritania@gmail.com" style="color:#0077b6; text-decoration:none; font-weight:bold;">
+    fairmauritania@gmail.com
+  </a>
+</div>
+
+<div class="table-wrapper">
+<table id="fundingTable" dir="rtl">
+  <thead>
+     <tr>
+      <th>التاريخ</th>
+      <th>الممول</th>
+      <th>المبلغ (€)</th>
+      <th>هدف التمويل</th>
+      <th>الموقِّع باسم الحكومة</th>
+      <th>مصدر الخبر</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>17.12.2025</td><td>لشراكة العالمية من أجل التعليم (GPE)</td><td>17530000</td><td> تحسين جودة التعليم</td><td>زيرة التربية وإصلاح النظام التعليمي هدى باباه</td><td><a href="https://www.ami.mr/archives/247257" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+
+    <tr><td>16.12.2025</td><td>صندوق الأوبك للتنمية الدولية</td><td> 30000000</td><td> دعم ميزانوي</td><td> وزير الشؤون الاقتصادية والتنمية، السيد عبد الله سليمان الشيخ سيديا </td><td><a href="https://www.ami.mr/archives/247128" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+  
+    <tr><td>02.12.2025</td><td>فرنسا</td><td> 40000000</td><td>تطوير منطقة تامورت النعاج</td><td> وزير الشؤون الاقتصادية والتنمية، السيد عبد الله سليمان الشيخ سيديا </td><td><a href="https://alakhbar.info/?q=node/64936" target="_blank">الأخبار</a></td></tr>
+  
+    <tr><td>25.11.2025</td><td>فرنسا</td><td> 39223671</td><td>مشروع إنشاء 10 محطات شمسية مزوّدة بوحدات تخزين</td><td> وزير الشؤون الاقتصادية والتنمية، السيد عبد الله سليمان الشيخ سيديا </td><td><a href="https://www.ami.mr/archives/244856" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+    <tr><td>19.10.2025</td><td>البنك الإسلامي للتنمية</td><td> 29260000</td><td>توسعة مستشفى أمراض القلب</td><td> وزير الشؤون الاقتصادية والتنمية، السيد عبد الله سليمان الشيخ سيديا </td><td><a href="https://www.ami.mr/archives/241336" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+  
+    <tr><td>15.07.2025</td><td>البنك الإسلامي للتنمية</td><td>26210000</td><td>مشروع تحسين التكوين المهني وتشغيل الشباب</td><td>مجلس الوزراء</td><td><a href="https://www.ami.mr/archives/234107" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+    <tr><td>24.07.2025</td><td>بنك شيلتر أفريك للتنمية (ShafDB)</td><td>15000000</td><td>بناء 1000 وحدة سكنية في مدينة ازويرات وتجهيز 1000 قطعة أرض في بلدية تفرغ زينه</td><td>وزارة الإسكان والعمران والاستصلاح الترابي، السيد أحمد سالم بوخريص</td><td><a href="https://www.ami.mr/archives/231985" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+    <tr><td>28.05.2025</td><td>البنك الإفريقي للتنمية</td><td>30000000</td><td>الزراعة المستدامة والأمن المائي وحماية البيئة</td><td>وزير الاقتصاد والمالية السيد سيد أحمد ولد أبُوه</td><td><a href="https://aqlame.com/node/37894" target="_blank">أقلام حرة</a></td></tr>
+    <tr><td>06.05.2025</td><td>فرنسا</td><td>43000000</td><td>توسعة شبكة نقل مياه آفطوط الساحلي</td><td>وزير الاقتصاد والمالية السيد سيد أحمد ولد أبُوه</td><td><a href="https://www.ami.mr/archives/227682" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+    <tr><td>06.05.2025</td><td>فرنسا</td><td>10000000</td><td>تعزيز الكهربة الريفية</td><td>وزير الاقتصاد والمالية السيد سيد أحمد ولد أبُوه</td><td><a href="https://www.ami.mr/archives/227679" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+	<tr><td>03.04.2025</td><td>الصين</td><td>23404255</td><td> مشاريع اقتصادية واجتماعية</td><td>وزير الاقتصاد والمالية السيد سيد أحمد ولد أبُوه</td><td><a href="https://www.facebook.com/photo?fbid=1246331597502280&set=a.337581858377263" target="_blank">الصحـراء Plus</a></td></tr>
+	
+	<tr><td>25.03.2025</td><td>فرنسا</td><td>64000000</td><td>خط الجهد العالي نواكشوط – النعمة</td><td>وزير الاقتصاد والمالية السيد سيد أحمد ولد أبُوه</td><td><a href="https://www.ami.mr/archives/224198" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+	<tr><td>24.03.2025</td><td>المجلس الأوروبي</td><td>20000000</td><td>مساعدات عسكرية أوروبية لجيش موريتانيا</td><td>وزارة الدفاع</td><td><a href="https://arabic.adnkronos.com/archives/123399" target="_blank">وكالة (آكي) الإيطالية للأنباء</a></td></tr>
+    
+    <tr><td>13.03.2025</td><td>الاتحاد الأوروبي</td><td>4000000</td><td>مساعدات إنسانية</td><td>الحكومة الموريتانية</td><td><a href="https://www.france24.com/ar/%D9%81%D9%8A%D8%AF%D9%8A%D9%88/20250312-%D9%85%D9%81%D9%88%D8%B6%D9%8A%D8%A9-%D8%A7%D9%84%D8%A7%D8%AA%D8%AD%D8%A7%D8%AF-%D8%A7%D9%84%D8%A3%D9%88%D8%B1%D9%88%D8%A8%D9%8A-%D8%AA%D9%85%D9%86%D8%AD-%D9%85%D9%88%D8%B1%D9%8A%D8%AA%D8%A7%D9%86%D9%8A%D8%A7-4-%D9%85%D9%84%D9%8A%D9%88%D9%86-%D9%8A%D9%88%D8%B1%D9%88-%D9%83%D9%85%D8%B3%D8%A7%D8%B9%D8%AF%D8%A7%D8%AA-%D8%A5%D9%86%D8%B3%D8%A7%D9%86%D9%8A%D8%A9" target="_blank">France24</a></td></tr>
+    <tr><td>26.07.2019</td><td>البنك الدولي</td><td>50000000</td><td>دعم الإصلاحات الاقتصادية والمالية التي قامت بها الحكومة الموريتانية</td><td>وزير الاقتصاد والمالية السيد المختار ولد أجاي</td><td><a href="https://www.ami.mr/archives/100636" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+  <tr><td>28.01.2025</td><td>البنك الافريقي للتنمية</td><td>24000000</td><td>مشروع إلى تطوير البنية التحتية الأساسية الرعوية والاجتماعية والتعليمية</td><td>وزير الاقتصاد والمالية السيد سيد أحمد أبوه</td><td><a href="https://www.ami.mr/archives/219317" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+    <tr><td>19.12.2024</td><td>صندوق النقد الدولي</td><td>47400000</td><td>تسهيل الائتماني الموسع و “آلية الدعم الموسع”</td><td>الحكومة الموريتانية</td><td><a href="https://www.ami.mr/archives/216117" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+   <tr><td>03.12.2024</td><td>اليابان</td><td>183000</td><td>دعم الأمن الغذائي</td><td>مفوضة الأمن الغذائي، فاطمة بنت خطري</td><td><a href="https://saharamedias.net/234483/" target="_blank">صحراء ميديا</a></td></tr>
+   
+   <tr><td>29.11.2024</td><td>اليابان</td><td>196579516.50</td><td>مشروع بناء سفينة بحوث بحرية</td><td>وزير الاقتصاد والمالية السيد سيد أحمد ولد أبُوه</td><td><a href="https://alakhbar.info/?q=node/57645" target="_blank">الأخبار</a></td></tr>
+   <tr><td>31.08.2024</td><td>الصين</td><td>177000000</td><td>مشروع الصرف الصحي في العاصمة نواكشوط</td><td>الحكومة الموريتانية</td><td><a href="https://alhadath.media/?p=10615" target="_blank">الحدث ميديا</a></td></tr>
+    
+	<tr><td>22.05.2024</td><td>الصندوق العربي للإنماء الاقتصادي والاجتماعي</td><td>10000000</td><td>قرض ميسر إضافي لتنمية الواحات</td><td>وزير الاقتصاد والتنمية المستدامة السيد عبد السلام ولد محمد صالح</td><td><a href="https://www.ami.mr/archives/196357" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+    <tr><td>22.05.2024</td><td>الصندوق الكويتي للتنمية الاقتصادية العربية</td><td>10000000</td><td>مشروع تزويد كيفه بمياه الشرب من نهر السنغال</td><td>وزير الاقتصاد والتنمية المستدامة السيد عبد السلام ولد محمد صالح</td><td><a href="https://www.ami.mr/archives/196348" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+    <tr><td>21.05.2024</td><td>الوكالة الأمريكية للتنمية الدولية (USAID)</td><td>500000</td><td>اللجنة الوطنية المستقلة للانتخابات</td><td>منصور انجاي</td><td><a href="https://www.ami.mr/archives/196219" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+    <tr><td>02.05.2024</td><td>الصندوق الإفريقي للتنمية</td><td>22000000</td><td>مشروع الربط الكهربائي بين موريتانيا ومالي</td><td>وزير الاقتصاد والتنمية المستدامة السيد عبد السلام ولد محمد صالح</td><td><a href="https://www.ami.mr/archives/194256" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+    <tr><td>04.04.2024</td><td>البنك الدولي</td><td>48000000</td><td>تحسين تعزيز أسس الإدارة السليمة للمالية العامة والديون</td><td>وزير الاقتصاد والتنمية المستدامة السيد عبد السلام ولد محمد صالح</td><td><a href="https://www.ami.mr/archives/192092" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+    <tr><td>04.03.2024</td><td>الحكومة الأمريكية</td><td>5000000</td><td>دعم صمود اللاجئين والمجتمعات المضيفة في الحوض الشرقي</td><td>ممثلة المفوضية السامية للأمم المتحدة لشؤون اللاجئين في موريتانيا</td><td><a href="https://www.ami.mr/archives/190582" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+    <tr><td>03.07.2024</td><td>صندوق النقد الدولي</td><td>86900000</td><td>مجموعة من الإصلاحات الهيكلية المصممة لتعزيز الحوكمة والشفافية</td><td>الحكومة الموريتانية</td><td><a href="https://www.ami.mr/archives/165584" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+    <tr><td>26.05.2024</td><td>البنك الدولي</td><td>30000000</td><td>البنك الموريتاني للاستثمار</td><td>زين العابدين ولد الشيخ أحمد</td><td><a href="https://alakhbar.info/?q=node/48251" target="_blank">الأخبار</a></td></tr>
+   
+   <tr><td>21.02.2024</td><td>فرنسا</td><td>3777700</td><td>المشروع المندمج لتعبئة المياه السطحية</td><td>وزير الاقتصاد والتنمية المستدامة، السيد عبد السلام ولد محمد صالح</td><td><a href="https://www.ami.mr/archives/187711" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+   <tr><td>09.01.2024</td><td>بعثة الاتحاد الأوروبي</td><td>9500000</td><td>دعم ميزانية الحكومة الموريتانية</td><td>وزير الاقتصاد والتنمية المستدامة، السيد عبد السلام ولد محمد صالح</td><td><a href="https://www.ami.mr/archives/183791" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+    
+	<tr><td>11.10.2023</td><td>الاتحاد الأوروبي</td><td>10500000</td><td>المجال الرقمي والنقل البري والبحري والأمن</td><td>وزير العدل  محمد محمود بن عبد الله بن بيه</td><td><a href="https://saharamedias.net/216033/" target="_blank">صحراء ميديا</a></td></tr>
+    
+	<tr><td>18.12.2023</td><td>الصندوق السعودي للتنمية</td><td>34857825</td><td>مشروع إنشاء وتجهيز معاهد متخصصة في المجالات الحيوية</td><td>وزير الاقتصاد والتنمية المستدامة، السيد عبد السلام ولد محمد صالح</td><td><a href="https://www.ami.mr/archives/182071" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+    <tr><td>11.12.2023</td><td>البنك الدولي</td><td>74044951</td><td>مشروع دعم اللامركزية وتنمية المدن متوسطة الإنتاج</td><td>وزير الاقتصاد والتنمية المستدامة، السيد عبد السلام ولد محمد صالح</td><td><a href="https://www.ami.mr/archives/181117" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+    <tr><td>26.01.2023</td><td>صندوق النقد الدولي</td><td>86900000</td><td>الحفاظ على استقرار الاقتصاد الكلي</td><td>الحكومة الموريتانية</td><td><a href="https://www.spa.gov.sa/w1845984" target="_blank">وكالة الأنباء السعودية</a></td></tr>
+   <tr><td>03.12.2022</td><td>الاتحاد الأوربي</td><td>12000000</td><td>الجيش الموريتاني  </td><td>وزارة الدفاع</td><td><a href="https://aqlame.com/node/11373/" target="_blank">أقلام حرة</a></td></tr>
+   
+   <tr><td>04.11.2022</td><td>اليابان</td><td>45868553</td><td>الأمن الغذائي 3567 طنًا من الأرز  </td><td>مفوضة الأمن الغذائي فاطمة بنت خطري</td><td><a href="https://saharamedias.net/197651/" target="_blank">صحراء ميديا</a></td></tr>
+   <tr><td>14.07.2022</td><td>اليابان</td><td>752688</td><td>دعم الأمن الغذائي</td><td>مفوضة الأمن الغذائي فاطمة بنت خطري</td><td><a href="https://saharamedias.net/190681/" target="_blank">صحراء ميديا</a></td></tr>
+	
+	<tr><td>10.05.2022</td><td>الاتحاد الأوروبي</td><td>47680000</td><td>برنامج دعم التنمية البشرية</td><td>وزير الشؤون الاقتصادية عثمان مامودو كان</td><td><a href="https://www.aa.com.tr/ar/%D8%A7%D9%82%D8%AA%D8%B5%D8%A7%D8%AF/%D9%85%D9%86%D8%AD%D8%A9-%D8%A3%D9%88%D8%B1%D9%88%D8%A8%D9%8A%D8%A9-%D8%A8%D9%80-476-%D9%85%D9%84%D9%8A%D9%88%D9%86-%D9%8A%D9%88%D8%B1%D9%88-%D9%84%D8%AF%D8%B9%D9%85-%D9%85%D9%88%D8%B1%D9%8A%D8%AA%D8%A7%D9%86%D9%8A%D8%A7/2583441" target="_blank">وكالة الأناضول</a></td></tr>
+    
+	<tr><td>21.04.2022</td><td>الأمم المتحدة</td><td>850000</td><td>متابعة تنفيذ استراتيجية النمو المتسارع والرفاه المشترك</td><td>الأمين العام لوزارة الشؤون الاقتصادية إدوم عبدي أجيد</td><td><a href="https://www.ami.mr/archives/127915" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+    <tr><td>07.03.2022</td><td>مجموعة تنسيق هيئات التمويل العربية والإسلامية</td><td>317000000</td><td>مشروع تزويد مدينة كيفه</td><td>وزير الشؤون الاقتصادية عثمان مامودو كان</td><td><a href="https://www.ami.mr/archives/126165" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+   <tr><td>01.03.2022</td><td>اليابان</td><td>12903225</td><td>تطوير مركز تحسين الخبرة والتكوين في مهن الصيد</td><td>وزير الاقتصاد الموريتاني عثمان كان</td><td><a href="https://saharamedias.net/181791/" target="_blank">صحراء ميديا</a></td></tr>
+    
+	<tr><td>12.01.2022</td><td>الاتحاد الأوروبي</td><td>12000000</td><td>منحة مالية للجيش الموريتانى</td><td>وزارة الدفاع</td><td><a href="https://alqad.info/node/14119" target="_blank">الغد</a></td></tr>
+   
+   <tr><td>14.09.2021</td><td>صندوق أبوظبي للتنمية</td><td>6500000</td><td>مشروع تطوير المرافق والخدمات، وتعزيز سلامة الملاحة</td><td>وزير الشؤون الاقتصادية عثمان مامودو كان</td><td><a href="https://www.ami.mr/archives/120561" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+    <tr><td>19.06.2021</td><td>المنظمة الدولية للتنمية</td><td>40000000</td><td>دعم مشروع تشغيل الشباب</td><td>الحكومة الموريتانية</td><td><a href="https://www.ami.mr/archives/117878" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+   <tr><td>15.05.2021</td><td>اليابان</td><td>1505376</td><td>سيارات و باصات و معدات لوجستية</td><td>المدير العام للأمن الوطني الفريق مسغارو ولد سيدي</td><td><a href="https://police.mr/?q=node/1373#:~:text=%D9%88%20%D9%82%D8%AF%20%D8%A8%D9%84%D8%BA%D8%AA%20%D8%A7%D9%84%D9%82%D9%8A%D9%85%D8%A9%20%D8%A7%D9%84%D8%A7%D8%AC%D9%85%D8%A7%D9%84%D9%8A%D8%A9,700.000.000)%20%D8%A3%D9%88%D9%82%D9%8A%D8%A9%20%D9%82%D8%AF%D9%8A%D9%85%D8%A9." target="_blank">موقع الشرطة الموريتانية</a></td></tr>
+    
+	<tr><td>08.03.2021</td><td>صندوق النقد الدولي</td><td>23800000</td><td>مساعدة السلطات على تلبية الاحتياجات الاجتماعية والبنية التحتية</td><td>الحكومة الموريتانية</td><td><a href="https://www.ami.mr/archives/114744" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+    <tr><td>15.12.2020</td><td>الإيسسكو</td><td>200000</td><td>جائحة كوفيد 19</td><td>وزير الثقافة والصناعة التقليدية السيد لمرابط ولد بناهي</td><td><a href="https://www.ami.mr/archives/112690" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+    <tr><td>03.09.2020</td><td>صندوق النقد الدولي</td><td>52000000</td><td>وباء كوفيد -19</td><td>الحكومة الموريتانية</td><td><a href="https://www.ami.mr/archives/110043" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+    <tr><td>01.08.2020</td><td>البنك الدولي</td><td>70000000</td><td>جائحة كوفيد 19</td><td>الحكومة الموريتانية</td><td><a href="https://www.ami.mr/archives/109401" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+    <tr><td>07.07.2020</td><td>منظمة الأمم المتحدة للأغذية والزراعة “الفاو”</td><td>400000</td><td>دعم صغار المنمين والمزارعين</td><td>وزير التنمية الريفية الدي ولد الزين</td><td><a href="https://www.ami.mr/archives/108875" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+    <tr><td>12.03.2020</td><td>البنك الدولي</td><td>52000000</td><td>مساهمة في تعزيز شبكة الأمان الاجتماعي</td><td>الحكومة الموريتانية</td><td><a href="https://www.ami.mr/archives/106569" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+   <tr><td>04.03.2020</td><td>اليابان</td><td>1125663,40</td><td>الوكالة الموريتانية للطيران المدني</td><td>الأمين العام لوزارة التجهيز والنقل، صدفي ولد سيدي محمد صمبا</td><td><a href="https://saharamedias.net/67140/" target="_blank">صحراء ميديا</a></td></tr>
+    
+	<tr><td>13.02.2020</td><td>الصندوق الدولي للتنمية الزراعية</td><td>50000000</td><td>مشروع التسيير المستديم للموارد الطبيعية</td><td>وزير التنمية الريفية الدي ولد الزين</td><td><a href="https://www.ami.mr/archives/105725" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+	<tr><td>08.01.2020</td><td>الصين</td><td>87000000</td><td>ميناء لصيد الأسماك شمال نواكشوط</td><td>الحكومة الموريتانية</td><td><a href="https://northafricapost.com/36791-china-loans-mauritania-87m-for-port-construction.html?utm_source=chatgpt.com" target="_blank">The North Africa Post</a></td></tr>
+   
+   <tr><td>26.07.2019</td><td>البنك الدولي</td><td>50000000</td><td>دعم الإصلاحات الاقتصادية والمالية التي قامت بها الحكومة الموريتانية</td><td>وزير الاقتصاد والمالية السيد المختار ولد أجاي</td><td><a href="https://www.ami.mr/archives/100636" target="_blank">الوكالة الموريتانية للأنباء</a></td></tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="2"><strong>المبلغ الإجمالي</strong></td>
+      <td id="total">جارٍ الحساب...</td>
+      <td colspan="3"></td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+
+<p>
+  <strong>تنويه للزوار والمتابعين:</strong>
+  نودّ أن نلفت عنايتكم إلى أنّ بعض المبالغ الواردة في البيانات كانت في الأصل بعملات م
+  ختلفة، مثل الدولار الأمريكي، والريال، والين، أو الأوقية، وقد جرى تحويلها إلى اليورو لأغراض 
+  التوحيد والإحصاء. وبناءً عليه، قد يظهر هامش طفيف من التفاوت في الدقة نتيجة تقلبات أسعار الصرف.
+</p>
+<h2> مفوضية الأمن الغذائي CSA </h2>
+
+<table id="hilfetabelle" style="width:100%; border-collapse:collapse; background:#fff; border-radius:8px; overflow:hidden; max-width:900px; margin:auto;">
+  <thead>
+    <tr style="background:#1e3a8a; color:#fff;">
+      <th style="padding:10px;">التاريخ</th>
+      <th style="padding:10px;">المساعدات منذ 2019</th>
+      <th style="padding:10px; text-align:right;">الكمية</th>
+      <th style="padding:10px;">الدولة</th>
+    </tr>
+  </thead>
+
+  <tbody id="tableBody">
+    <tr>
+      <td style="padding:10px;">02.12.2025</td>
+      <td style="padding:10px;">الأرز</td>
+      <td class="menge" style="padding:10px; text-align:right;">13000</td>
+      <td style="padding:10px;">جمهورية كوريا</td>
+    </tr>
+    <tr style="background:#eef2ff;">
+      <td style="padding:10px;">25.03.2025</td>
+      <td style="padding:10px;"> شحنة من الأرز</td>
+      <td class="menge" style="padding:10px; text-align:right;">5354</td>
+      <td style="padding:10px;">اليابان</td>
+    </tr>
+    <tr>
+      <td style="padding:10px;">12.11.2024</td>
+      <td style="padding:10px;">شحنة من الأرز</td>
+      <td class="menge" style="padding:10px; text-align:right;">6720</td>
+      <td style="padding:10px;">جمهورية كوريا</td>
+    </tr>
+    <tr>
+      <td style="padding:10px;">04.11.2022</td>
+      <td style="padding:10px;"> شحنة من الأرز</td>
+      <td class="menge" style="padding:10px; text-align:right;">3567</td>
+      <td style="padding:10px;">اليابان</td>
+    </tr>
+	<tr>
+      <td style="padding:10px;">29.10.2021</td>
+      <td style="padding:10px;"> الأسمدة</td>
+      <td class="menge" style="padding:10px; text-align:right;">5500</td>
+      <td style="padding:10px;">الجزائر</td>
+    </tr>
+	<tr>
+      <td style="padding:10px;">22.10.2021</td>
+      <td style="padding:10px;"> شحنة من الأرز</td>
+      <td class="menge" style="padding:10px; text-align:right;">3273</td>
+      <td style="padding:10px;">اليابان</td>
+    </tr>
+	<tr>
+      <td style="padding:10px;">25.01.2021</td>
+      <td style="padding:10px;"> شحنة من الأرز</td>
+      <td class="menge" style="padding:10px; text-align:right;">5979</td>
+      <td style="padding:10px;">اليابان</td>
+    </tr>
+	<tr>
+      <td style="padding:10px;">05.03.2020</td>
+      <td style="padding:10px;"> شحنة من الأرز</td>
+      <td class="menge" style="padding:10px; text-align:right;">6009</td>
+      <td style="padding:10px;">اليابان</td>
+    </tr>
+	<tr>
+      <td style="padding:10px;">18.03.2019</td>
+      <td style="padding:10px;"> شحنة من الأرز</td>
+      <td class="menge" style="padding:10px; text-align:right;">7752</td>
+      <td style="padding:10px;">اليابان</td>
+    </tr>
+  </tbody>
+
+  <tfoot>
+    <tr style="background:#e5e7eb; font-weight:700;">
+      <td colspan="4" style="padding:12px;">المجموع بالطن: <span id="gesamtSumme">0</span></td>
+    </tr>
+  </tfoot>
+</table>
+
+<div id="pagination" style="text-align:center; margin-top:10px;"></div>
+
+<script>
+
+// Sum calculation
+function summeBerechnen() {
+  let sum = 0;
+  document.querySelectorAll(".menge").forEach(td => {
+    const value = td.textContent.replace(/[^\d.,-]/g, "");
+    const num = parseFloat(value.replace(",", ".")) || 0;
+    sum += num;
+  });
+  document.getElementById("gesamtSumme").textContent = sum + " طن";
+}
+summeBerechnen();
+
+
+// Pagination (3 rows per page)
+const rowsPerPage = 3;
+const tableBody = document.getElementById("tableBody");
+const rows = Array.from(tableBody.querySelectorAll("tr"));
+const totalPages = Math.ceil(rows.length / rowsPerPage);
+const paginationDiv = document.getElementById("pagination");
+
+function showPage(page) {
+  tableBody.innerHTML = "";
+  const start = (page - 1) * rowsPerPage;
+  const end = start + rowsPerPage;
+  rows.slice(start, end).forEach(r => tableBody.appendChild(r));
+
+  renderPagination(page);
+}
+
+function renderPagination(activePage) {
+  paginationDiv.innerHTML = "";
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement("button");
+    btn.textContent = i;
+    btn.style.margin = "5px";
+    btn.style.padding = "6px 12px";
+    btn.style.borderRadius = "6px";
+    btn.style.border = i === activePage ? "2px solid #1e3a8a" : "1px solid #ccc";
+    btn.style.background = i === activePage ? "#eef2ff" : "#fff";
+    btn.onclick = () => showPage(i);
+    paginationDiv.appendChild(btn);
+  }
+}
+
+showPage(1);
+
+</script>
+
+
+<!-- Besucherzähler --> 
+<div style="text-align:center; margin-top:20px;">
+  <a href="https://www.hitwebcounter.com" target="_blank">
+    <img src="https://hitwebcounter.com/counter/counter.php?page=1234567&style=0038&nbdigits=7&type=page&initCount=0" 
+         title="عدد الزوار" alt="عداد الزوار" border="0" />
+  </a>
+  <div style="font-family:Tahoma; font-size:14px; color:#333;">عدد الزوار</div>
+</div>
+
+</main>
+
+  </div>
+
+  <!-- Werbung rechts -->
+  <div class="ad">إعلان</div>
+
+</div>
+
+<script>
+// Countdown
+const targetDate = new Date("2029-08-01T15:02:00+01:00").getTime();
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+  if (distance < 0) {
+    document.querySelector(".countdown").innerHTML = "✅ انتهت المأمورية";
+    return;
+  }
+  document.getElementById("days").textContent = Math.floor(distance / (1000*60*60*24));
+  document.getElementById("hours").textContent = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+  document.getElementById("minutes").textContent = Math.floor((distance % (1000*60*60)) / (1000*60));
+  document.getElementById("seconds").textContent = Math.floor((distance % (1000*60)) / 1000);
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// Projekte anzeigen
+const projects = [
+  { name: "مستشفى الملك سلمان بن عبد العزيز", start: "2025-09-17", end: "2028-01-17" },
+  { name: " مستودع محروقات", start: "2024-11-21", end: "2026-11-21" },
+  { name: "المختبر الوطني لمراقبة جودة الأدوية", start: "2025-07-03", end: "2026-07-03" },
+  { name: "مشروع إنشاء 10 محطات شمسية", start: "2025-11-25", end: "2027-11-25" },
+  { name: "توسعة مستشفى أمراض القلب", start: "2025-10-19", end: "2027-10-19" },
+  { name: " بناء مسلخة عصرية بتوجنين ب 10 مليارات أوقية قديمة", start: "2025-12-03", end: "2027-12-03" },
+  { name: " تطوير منطقة تامورت النعاج", start: "2025-12-02", end: "2027-12-02" }
+];
+const colors = ["#191970","#0077b6","#009688","#e67e22","#8e44ad","#16a085","#2c3e50","#5b8ee6","#ff7f50"];
+
+function renderProjects() {
+  const container = document.getElementById("projects-container");
+  container.innerHTML = "<h2>📊 المشاريع الجارية</h2>";
+  projects.forEach((proj, i) => {
+    const startDate = new Date(proj.start);
+    const endDate = new Date(proj.end);
+    const now = new Date();
+    const total = endDate - startDate;
+    const elapsed = now - startDate;
+    let percent = (elapsed / total) * 100;
+    percent = Math.min(Math.max(percent, 0), 100);
+    const display = percent.toFixed(2).replace('.', ',') + "%";
+    const color = colors[i % colors.length];
+    const box = document.createElement("div");
+    box.style.background = "#f8f9ff";
+    box.style.margin = "10px 0";
+    box.style.padding = "10px 15px";
+    box.style.borderRadius = "10px";
+    box.style.boxShadow = "0 2px 6px rgba(0,0,0,0.08)";
+    box.innerHTML = `
+      <h3 style="color:${color}; font-size:1.1em; margin:3px 0;">${proj.name}</h3>
+      <p style="font-size:0.95em; margin:2px 0;">من ${startDate.toLocaleDateString("en-GB")} إلى ${endDate.toLocaleDateString("en-GB")}</p>
+      <div style="background:#e0e6f5;border-radius:8px;overflow:hidden; height:20px;">
+        <div style="width:${percent}%;background:${color};height:20px;color:white;line-height:20px;font-size:0.85em;">
+          ${display}
+        </div>
+      </div>
+      <p style="font-size:0.95em; margin:2px 0;">الحالة: <span style="font-weight:bold;color:${percent >= 100 ? 'green' : 'red'}">
+        ${percent >= 100 ? 'منجز ✅' : 'قيد التنفيذ ⚙️'}</span></p>
+    `;
+    container.appendChild(box);
+  });
+}
+renderProjects();
+
+// Total berechnen
+function formatArabicNumber(num) {
+    return num.toLocaleString('eb-BG');
+}
+function calculateTotalEuro() {
+    const sumCells = document.querySelectorAll('#fundingTable tbody td:nth-child(3)');
+    let total = 0;
+    sumCells.forEach(td => {
+        const value = parseFloat(td.textContent.replace(/,/g,'').trim()) || 0;
+        total += value;
+    });
+    document.getElementById('total').textContent = formatArabicNumber(total) + ' €';
+}
+window.addEventListener('load', calculateTotalEuro);
+</script>
+<script>
+// === Projekte Pagination ===
+const projectsPerPage = 5; // Projekte pro Seite
+let projectPage = 1;
+
+function renderProjectsPage(page = 1) {
+    const container = document.getElementById("projects-container");
+    container.innerHTML = "<h2>📊 المشاريع الجارية</h2>";
+
+    const start = (page - 1) * projectsPerPage;
+    const end = start + projectsPerPage;
+    const pageProjects = projects.slice(start, end);
+
+    pageProjects.forEach((proj, i) => {
+        const startDate = new Date(proj.start);
+        const endDate = new Date(proj.end);
+        const now = new Date();
+        const total = endDate - startDate;
+        const elapsed = now - startDate;
+        let percent = (elapsed / total) * 100;
+        percent = Math.min(Math.max(percent, 0), 100);
+        const display = percent.toFixed(2).replace('.', ',') + "%";
+        const color = colors[i % colors.length];
+        const box = document.createElement("div");
+        box.style.background = "#f8f9ff";
+        box.style.margin = "10px 0";
+        box.style.padding = "10px 15px";
+        box.style.borderRadius = "10px";
+        box.style.boxShadow = "0 2px 6px rgba(0,0,0,0.08)";
+        box.innerHTML = `
+            <h3 style="color:${color}; font-size:1.1em; margin:3px 0;">${proj.name}</h3>
+            <p style="font-size:0.95em; margin:2px 0;">من ${startDate.toLocaleDateString("en-GB")} إلى ${endDate.toLocaleDateString("en-GB")}</p>
+            <div style="background:#e0e6f5;border-radius:8px;overflow:hidden; height:20px;">
+                <div style="width:${percent}%;background:${color};height:20px;color:white;line-height:20px;font-size:0.85em;">
+                    ${display}
+                </div>
+            </div>
+            <p style="font-size:0.95em; margin:2px 0;">الحالة: <span style="font-weight:bold;color:${percent >= 100 ? 'green' : 'red'}">
+                ${percent >= 100 ? 'منجز ✅' : 'قيد التنفيذ ⚙️'}</span></p>
+        `;
+        container.appendChild(box);
+    });
+
+    // Pagination Buttons
+    const totalPages = Math.ceil(projects.length / projectsPerPage);
+    const paginationDiv = document.createElement("div");
+    paginationDiv.style.marginTop = "10px";
+    paginationDiv.style.textAlign = "center";
+
+    for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement("button");
+        btn.textContent = i;
+        btn.style.margin = "0 3px";
+        btn.onclick = () => { projectPage = i; renderProjectsPage(i); };
+        if (i === page) btn.style.fontWeight = "bold";
+        paginationDiv.appendChild(btn);
+    }
+
+    container.appendChild(paginationDiv);
+}
+renderProjectsPage(projectPage);
+
+// === Hilfsgelder Pagination ===
+const rowsPerPageFunding = 10;
+let fundingPage = 1;
+
+function renderFundingTable(page = 1) {
+    const table = document.getElementById('fundingTable');
+    const tbody = table.querySelector('tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    const totalPages = Math.ceil(rows.length / rowsPerPageFunding);
+
+    rows.forEach((row, index) => {
+        row.style.display = (index >= (page - 1) * rowsPerPageFunding && index < page * rowsPerPageFunding) ? '' : 'none';
+    });
+
+    // Pagination Controls
+    let paginationDiv = document.getElementById('funding-pagination');
+    if (!paginationDiv) {
+        paginationDiv = document.createElement('div');
+        paginationDiv.id = 'funding-pagination';
+        paginationDiv.style.textAlign = 'center';
+        paginationDiv.style.margin = '10px 0';
+        table.parentNode.insertBefore(paginationDiv, table.nextSibling);
+    }
+    paginationDiv.innerHTML = '';
+    for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        btn.style.margin = "0 3px";
+        btn.onclick = () => { fundingPage = i; renderFundingTable(i); };
+        if (i === page) btn.style.fontWeight = "bold";
+        paginationDiv.appendChild(btn);
+    }
+}
+window.addEventListener('load', () => renderFundingTable(fundingPage));
+</script>
+
+</body>
+</html>
+
+
