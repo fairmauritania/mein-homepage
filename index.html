@@ -162,6 +162,19 @@ tfoot td {
 @media(max-width: 1100px) {
   .ad { display: none; }
 }
+	/* Optimierung für Handys */
+@media (max-width: 768px) {
+  body {
+    padding: 15px; /* Verhindert, dass Text am Bildschirmrand klebt */
+  }
+  img {
+    max-width: 100%; /* Verhindert, dass Bilder zu breit für das Handy sind */
+    height: auto;
+  }
+  h1 {
+    font-size: 1.5rem; /* Macht die Hauptüberschrift auf dem Handy etwas kleiner */
+  }
+}
 </style>
 
 </head>
