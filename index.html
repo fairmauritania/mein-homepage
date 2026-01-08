@@ -19,7 +19,7 @@
   --shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
-/* GLOBAL */
+/* GLOBAL - إصلاح شامل للعرض */
 body {
   font-family: "Tajawal", system-ui, -apple-system, sans-serif;
   margin: 0;
@@ -29,65 +29,66 @@ body {
   text-align: center;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  font-size: 14px; /* حجم ثابت للخط لضمان القراءة */
-  overflow-x: hidden; /* يمنع التمرير الأفقي المزعج للموقع كاملاً */
+  width: 100%;
+  overflow-x: hidden; /* يمنع التمرير الجانبي للموقع */
 }
 
-/* LAYOUT */
+/* LAYOUT - جعل المحتوى يملأ الشاشة */
 .wrapper {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  max-width: 100%; /* ضمان عدم خروج الحاوية عن الشاشة */
-  margin: 0 auto;
+  flex-direction: column; /* ترتيب عمودي للهاتف */
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .content {
-  flex: 1;
   width: 100%;
-  max-width: 900px;
-  padding: 10px; /* تقليل الحشو لزيادة مساحة العرض على الهاتف */
+  max-width: 100%; /* إلغاء التحديد لضمان ملء الشاشة */
+  padding: 10px;
   box-sizing: border-box;
 }
 
-/* HEADER */
+/* HEADER - تحسين الهيدر لعدم ترك فراغات */
 header {
   background: var(--white);
-  padding: 10px;
+  padding: 15px 10px;
   box-shadow: var(--shadow);
-  border-radius: 0 0 var(--radius) var(--radius);
-  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
 }
 
 header img {
-  max-height: 40px; /* تصغير الصور أكثر لتناسب عرض الهاتف */
-  margin: 5px;
-  border-radius: 6px;
+  max-width: 90%; /* تمدد الصورة لتناسب العرض */
+  height: auto;
+  border-radius: 8px;
 }
 
 /* TITEL */
 h1 {
-  font-size: 1.2rem;
-  margin: 10px 0;
-  padding: 0 10px;
+  font-size: 1.25rem;
+  margin: 15px 0;
+  padding: 0 5px;
   color: var(--primary-light);
+  line-height: 1.3;
 }
 
-/* COUNTDOWN - تحسين العرض على الهاتف */
+/* COUNTDOWN - توزيع أفضل للوقت */
 .countdown {
-  display: grid; /* استخدام الشبكة لتوزيع العناصر بالتساوي */
-  grid-template-columns: repeat(4, 1fr); 
+  display: flex;
+  justify-content: center;
   gap: 8px;
-  margin: 15px auto;
-  max-width: 350px;
+  margin: 20px 0;
   padding: 0 5px;
 }
 
 .box {
   background: var(--white);
-  border-radius: 10px; /* تغيير الشكل لمربع بحواف دائرية ليوفر مساحة أكبر للنص */
-  width: auto; 
-  height: 60px;
+  border-radius: 10px;
+  flex: 1; /* توزيع متساوي للصناديق */
+  min-width: 60px;
+  height: 65px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,55 +97,65 @@ h1 {
 }
 
 .number {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 800;
   color: var(--primary-light);
 }
 
 .label {
-  font-size: 0.55rem;
+  font-size: 0.6rem;
 }
 
-/* TABLE - حل مشكلة دقة الجدول على الهاتف */
+/* PROJECT BOXES - تحسين شكل بطاقات المشاريع */
+#projects-container .project-box {
+  text-align: right; /* محاذاة النص للعربية */
+  padding: 12px !important;
+  margin: 10px 0 !important;
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* TABLE - حل مشكلة التمرير الجانبي للجداول */
 .table-wrapper {
   width: 100%;
-  overflow-x: auto; /* يسمح بالتمرير الأفقي فقط داخل منطقة الجدول */
-  -webkit-overflow-scrolling: touch; /* تمرير سلس على آيفون */
-  margin-top: 20px;
+  overflow-x: auto; /* يسمح بالتمرير لليمين واليسار فقط داخل الجدول */
   background: var(--white);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  border: 1px solid #eee;
+  margin-top: 20px;
+  -webkit-overflow-scrolling: touch;
 }
 
 table {
   width: 100%;
-  border-collapse: collapse;
-  min-width: 600px; /* يجبر الجدول على البقاء عريضاً قليلاً ليتم تمريره، بدلاً من انضغاط النصوص */
-  font-size: 0.75rem;
+  min-width: 600px; /* لضمان عدم تداخل النصوص */
+  font-size: 0.8rem;
 }
 
-th, td {
-  padding: 10px 8px;
-  text-align: center;
-  white-space: nowrap; /* يمنع انقسام السطر الواحد داخل الخلية ليبقى منظماً */
+td, th {
+  padding: 12px 8px;
+  white-space: nowrap;
 }
 
-/* RESPONSIVE MEDIA QUERIES */
+/* PAGINATION - تكبير الأزرار قليلاً لتناسب اللمس */
+.pagination, #funding-pagination {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+button {
+  min-width: 35px;
+  height: 35px;
+  font-size: 0.9rem !important;
+}
+
+/* MEDIA QUERY - تعديلات إضافية للهواتف الصغيرة */
 @media (max-width: 480px) {
-  h1 { font-size: 1.1rem; }
-  
-  /* تصغير حجم أزرار الترقيم لتناسب الأصابع ولتكون واضحة */
-  #funding-pagination button, #pagination button {
-    padding: 6px 10px !important;
-    font-size: 0.8rem !important;
-    margin: 2px !important;
-  }
-
-  /* تحسين عرض خلايا الجدول في الهواتف الصغيرة جداً */
-  td {
-    padding: 12px 8px;
-  }
+  .content { padding: 8px; }
+  h1 { font-size: 1.15rem; }
+  .box { height: 60px; }
 }
 </style>
 
