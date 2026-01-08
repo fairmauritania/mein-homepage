@@ -15,7 +15,7 @@
   --accent: #00a2ff;
   --bg: #f7f9fc;
   --white: #ffffff;
-  --radius: 12px; /* تقليل الحواف لتناسب الخطوط الصغيرة */
+  --radius: 12px;
   --shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
@@ -23,12 +23,14 @@
 body {
   font-family: "Tajawal", system-ui, -apple-system, sans-serif;
   margin: 0;
+  padding: 0;
   background: var(--bg);
   color: var(--primary);
   text-align: center;
-  line-height: 1.5; /* تقليل المسافة بين الأسطر قليلاً */
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  font-size: 0.85rem; /* تصغير الخط العام للموقع */
+  font-size: 14px; /* حجم ثابت للخط لضمان القراءة */
+  overflow-x: hidden; /* يمنع التمرير الأفقي المزعج للموقع كاملاً */
 }
 
 /* LAYOUT */
@@ -36,68 +38,56 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  max-width: 1400px;
+  max-width: 100%; /* ضمان عدم خروج الحاوية عن الشاشة */
   margin: 0 auto;
 }
 
 .content {
   flex: 1;
+  width: 100%;
   max-width: 900px;
-  padding: 15px; /* تقليل الحشو */
+  padding: 10px; /* تقليل الحشو لزيادة مساحة العرض على الهاتف */
   box-sizing: border-box;
 }
 
 /* HEADER */
 header {
   background: var(--white);
-  padding: 15px;
+  padding: 10px;
   box-shadow: var(--shadow);
   border-radius: 0 0 var(--radius) var(--radius);
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 header img {
-  max-height: 50px; /* تصغير الصور في الهيدر */
-  border-radius: 8px;
-  transition: transform 0.3s ease;
+  max-height: 40px; /* تصغير الصور أكثر لتناسب عرض الهاتف */
+  margin: 5px;
+  border-radius: 6px;
 }
 
-/* TITEL - تم تصغيره بناءً على طلبك */
+/* TITEL */
 h1 {
-  font-size: 1.3rem; /* حجم أصغر وأكثر دقة */
-  margin: 10px 0 5px;
-  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 10px 0;
+  padding: 0 10px;
   color: var(--primary-light);
 }
 
-h2 {
-  font-size: 1.1rem; /* تصغير العناوين الجانبية */
-  margin: 20px 0 10px;
-}
-
-hr {
-  width: 40px; 
-  height: 3px;
-  background: var(--accent);
-  border: none;
-  border-radius: 10px;
-  margin: 0 auto 20px;
-}
-
-/* COUNTDOWN - تصغير حجم دوائر العداد */
+/* COUNTDOWN - تحسين العرض على الهاتف */
 .countdown {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin: 20px 0;
+  display: grid; /* استخدام الشبكة لتوزيع العناصر بالتساوي */
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 8px;
+  margin: 15px auto;
+  max-width: 350px;
+  padding: 0 5px;
 }
 
 .box {
   background: var(--white);
-  border-radius: 50%;
-  width: 65px; /* تصغير الدائرة من 80 إلى 65 */
-  height: 65px;
+  border-radius: 10px; /* تغيير الشكل لمربع بحواف دائرية ليوفر مساحة أكبر للنص */
+  width: auto; 
+  height: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -106,70 +96,54 @@ hr {
 }
 
 .number {
-  font-size: 1.1rem; /* تصغير أرقام العداد */
+  font-size: 1rem;
   font-weight: 800;
   color: var(--primary-light);
-  line-height: 1;
 }
 
 .label {
-  color: var(--accent);
-  font-size: 0.6rem; /* تصغير التسميات */
-  font-weight: bold;
+  font-size: 0.55rem;
 }
 
-/* TABLE - تصغير خطوط الجداول */
+/* TABLE - حل مشكلة دقة الجدول على الهاتف */
 .table-wrapper {
-  overflow-x: auto;
-  margin-top: 25px;
+  width: 100%;
+  overflow-x: auto; /* يسمح بالتمرير الأفقي فقط داخل منطقة الجدول */
+  -webkit-overflow-scrolling: touch; /* تمرير سلس على آيفون */
+  margin-top: 20px;
   background: var(--white);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+  border: 1px solid #eee;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 500px;
-  font-size: 0.8rem; /* تصغير خط الجدول */
+  min-width: 600px; /* يجبر الجدول على البقاء عريضاً قليلاً ليتم تمريره، بدلاً من انضغاط النصوص */
+  font-size: 0.75rem;
 }
 
-thead th {
-  background: var(--primary-light);
-  color: var(--white);
-  padding: 10px; /* تقليل المسافات */
+th, td {
+  padding: 10px 8px;
   text-align: center;
-  font-weight: 600;
-  font-size: 0.85rem;
+  white-space: nowrap; /* يمنع انقسام السطر الواحد داخل الخلية ليبقى منظماً */
 }
 
-td {
-  padding: 8px 10px; /* تقليل المسافات لتقليل حجم الجدول */
-  border-bottom: 1px solid #f0f3f7;
-}
-
-tfoot td {
-  background: #f8fdff;
-  font-weight: bold;
-  font-size: 0.85rem;
-  color: var(--primary-light);
-}
-
-/* تصغير أزرار الترقيم تلقائياً */
-#funding-pagination button, #pagination button {
-  font-size: 0.75rem !important;
-  padding: 4px 8px !important;
-  border-radius: 4px;
-}
-
-/* RESPONSIVE DESIGN */
-@media (max-width: 768px) {
-  .content { padding: 10px; }
-  .countdown { gap: 8px; }
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 480px) {
   h1 { font-size: 1.1rem; }
-  td, th {
-    padding: 6px 4px;
-    font-size: 0.75rem;
+  
+  /* تصغير حجم أزرار الترقيم لتناسب الأصابع ولتكون واضحة */
+  #funding-pagination button, #pagination button {
+    padding: 6px 10px !important;
+    font-size: 0.8rem !important;
+    margin: 2px !important;
+  }
+
+  /* تحسين عرض خلايا الجدول في الهواتف الصغيرة جداً */
+  td {
+    padding: 12px 8px;
   }
 }
 </style>
