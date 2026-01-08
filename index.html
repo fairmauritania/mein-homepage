@@ -18,30 +18,24 @@
   --radius: 10px;
 }
 
-/* إصلاح العرض الكلي */
 body {
   font-family: "Tajawal", sans-serif;
   margin: 0;
   padding: 0;
   background: var(--bg);
   width: 100%;
-  overflow-x: hidden; /* منع التمرير الجانبي للموقع */
-}
-
-.wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  overflow-x: hidden;
 }
 
 .content {
-  width: 100%; /* استغلال كامل العرض */
-  max-width: 1000px; /* حد أقصى للحواسيب فقط */
+  width: 100%;
+  max-width: 1000px;
   padding: 10px;
   box-sizing: border-box;
+  margin: 0 auto;
 }
 
-/* تحسين الهيدر */
+/* --- الهيدر (الصور) --- */
 header {
   background: var(--white);
   padding: 10px;
@@ -49,39 +43,105 @@ header {
   box-sizing: border-box;
   margin-bottom: 15px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
 }
 
 header img {
-  max-height: 40px; /* تصغير الصور لتوفير مساحة */
-  margin: 2px;
+  max-height: 35px; /* تصغير الصور أكثر */
+  width: auto;
+  border-radius: 4px;
 }
 
-/* تصغير الخطوط والعناوين */
-h1 { font-size: 1.1rem; color: var(--primary-light); margin: 10px 0; }
-h2 { font-size: 1rem; margin-top: 20px; }
+/* --- العناوين (تصغير وتوسيط) --- */
+h1 {
+  font-size: 1.05rem !important; /* تصغير العنوان الرئيسي */
+  margin: 15px 0 10px 0 !important;
+  color: var(--primary-light);
+  text-align: center !important;
+  width: 100%;
+}
 
-/* العداد - جعل المربعات أصغر وتملأ العرض */
+h2 {
+  font-size: 0.95rem !important; /* تصغير عناوين الأقسام */
+  text-align: center !important;
+  margin-top: 20px;
+  color: var(--primary);
+}
+
+main p {
+  text-align: center;
+  font-size: 0.75rem; /* تصغير النص التوضيحي */
+  color: var(--primary);
+  margin: 8px 0;
+}
+
+/* --- العداد (تصغير وتوسيط) --- */
 .countdown {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
-  margin: 15px 0;
+  gap: 4px;
+  margin: 15px auto;
+  width: 100%;
+  max-width: 280px; /* تضييق عرض العداد */
 }
 
 .box {
   background: var(--white);
-  padding: 8px 0;
+  height: 42px; /* ارتفاع صغير جداً */
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #f0f0f0;
+}
+
+.number { 
+  font-size: 0.85rem; 
+  font-weight: 800; 
+  line-height: 1; 
+}
+
+.label { 
+  font-size: 0.45rem; 
+  color: var(--accent); 
+  font-weight: bold; 
+}
+
+/* --- المشاريع (تصغير الخطوط) --- */
+.project-box {
+  background: var(--white);
+  margin: 10px 0;
+  padding: 10px;
   border-radius: 8px;
+  text-align: right;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.number { font-size: 1rem; font-weight: bold; display: block; }
-.label { font-size: 0.6rem; color: var(--accent); }
+.project-box h3 {
+  font-size: 0.85rem !important; /* تصغير اسم المشروع */
+  margin: 0 0 5px 0 !important;
+}
 
-/* الجداول - أهم جزء للإصلاح */
+.project-box p {
+  font-size: 0.7rem !important; /* تصغير التواريخ والحالة */
+  margin: 2px 0 !important;
+}
+
+/* --- الجداول --- */
 .table-wrapper {
   width: 100%;
-  overflow-x: auto; /* السماح بالتمرير داخل الجدول فقط */
+  overflow-x: auto;
   background: var(--white);
   border-radius: var(--radius);
   margin-top: 15px;
@@ -89,44 +149,17 @@ h2 { font-size: 1rem; margin-top: 20px; }
 
 table {
   width: 100%;
-  min-width: 600px; /* منع انضغاط البيانات */
+  min-width: 600px;
   border-collapse: collapse;
-  font-size: 0.75rem; /* خط صغير واحترافي */
+  font-size: 0.7rem; /* تصغير خط الجدول */
 }
 
 th, td {
-  padding: 10px 5px;
+  padding: 8px 4px;
   text-align: center;
   border-bottom: 1px solid #eee;
 }
-
-/* بطاقات المشاريع */
-.project-box {
-  background: var(--white);
-  margin: 10px 0;
-  padding: 12px;
-  border-radius: 10px;
-  text-align: right;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-/* تحسين أزرار الترقيم */
-.pagination button, #funding-pagination button {
-  padding: 5px 10px;
-  margin: 2px;
-  font-size: 0.75rem;
-  border: 1px solid #ddd;
-  background: #fff;
-  border-radius: 4px;
-}
-
-/* تعديلات خاصة بالشاشات الكبيرة */
-@media (min-width: 768px) {
-  .content { width: 90%; }
-  h1 { font-size: 1.5rem; }
-}
 </style>
-
 </head>
 <body>
 
@@ -141,7 +174,10 @@ th, td {
     <img src="https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2010/12/close-up_of_the_richat_structure/10279708-2-eng-GB/Close-up_of_the_Richat_structure_pillars.jpg" width="100" height="100" alt="">
     <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Chinguetti_old_town.jpg" width="100" height="100" alt="">
     <img src="https://t3.ftcdn.net/jpg/02/06/13/90/360_F_206139065_H0Pu1fJ0rpKHfEI5ZuRBYz6xnJvF34SA.jpg" width="100" height="100" alt="">
-  </div>
+    <img src="https://www.shipntrain.ch/fileadmin/_processed_/1/c/csm_Erzzug_Mauretanien_1920_d5f3148717.jpg" width="100" height="100" alt="">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Babab%C3%A9.jpg" width="130" height="100" alt="">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/The_Mosque_of_Tichitt.jpg/2560px-The_Mosque_of_Tichitt.jpg" width="130" height="100" alt="">
+	 </div>
 </header>
 
 <main>
@@ -156,7 +192,9 @@ th, td {
   <div class="box"><span class="number" id="seconds">0</span><span class="label">ثانية</span></div>
 </div>
 
-<p><strong>الباقي من الزمن على فترة الرئيس غزواني الأخير</strong></p>
+<<p style="text-align: center; margin-top: 10px;">
+  <strong>الباقي من الزمن على فترة الرئيس غزواني الأخير</strong>
+</p>
 
 <!-- Projekte Bereich -->
 <section id="projects-container"></section>
@@ -164,7 +202,7 @@ th, td {
 <h2>جدول أموال المساعدات</h2>
 
 <div style="margin:15px 0; padding:15px; background:#f4f6fa; border-radius:10px; text-align:right; box-shadow:0 2px 6px rgba(0,0,0,0.1); font-size:1.1em; color:#191970; direction:rtl;">
-  🇲🇷 يمكنكم التواصل معنا لمساعدتنا في تحسين واستكمال عمليات المراقبة<br>
+  🇲🇷 تجاوزت المساعدات والقروض الممنوحة لموريتانيا منذ منتصف عام 2019 حاجز 2.3 مليار يورو. ندعوكم للتواصل معنا للمساهمة في تعزيز وتطوير آليات الرقابة والمتابعة.<br>
   📧 البريد الإلكتروني: 
   <a href="mailto:fairmauritania@gmail.com" style="color:#0077b6; text-decoration:none; font-weight:bold;">
     fairmauritania@gmail.com
@@ -465,13 +503,13 @@ function renderProjects() {
     box.style.boxShadow = "0 2px 6px rgba(0,0,0,0.08)";
     box.innerHTML = `
       <h3 style="color:${color}; font-size:1.1em; margin:3px 0;">${proj.name}</h3>
-      <p style="font-size:0.95em; margin:2px 0;">من ${startDate.toLocaleDateString("en-GB")} إلى ${endDate.toLocaleDateString("en-GB")}</p>
+      <p style="font-size:0.7em; margin:2px 0;">من ${startDate.toLocaleDateString("en-GB")} إلى ${endDate.toLocaleDateString("en-GB")}</p>
       <div style="background:#e0e6f5;border-radius:8px;overflow:hidden; height:20px;">
-        <div style="width:${percent}%;background:${color};height:20px;color:white;line-height:20px;font-size:0.85em;">
+        <div style="width:${percent}%;background:${color};height:20px;color:white;line-height:20px;font-size:0.7em;">
           ${display}
         </div>
       </div>
-      <p style="font-size:0.95em; margin:2px 0;">الحالة: <span style="font-weight:bold;color:${percent >= 100 ? 'green' : 'red'}">
+      <p style="font-size:0.81em; margin:2px 0;">الحالة: <span style="font-weight:bold;color:${percent >= 100 ? 'green' : 'red'}">
         ${percent >= 100 ? 'منجز ✅' : 'قيد التنفيذ ⚙️'}</span></p>
     `;
     container.appendChild(box);
