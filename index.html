@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مرصد التمو يلات والمشاريع - موريتانيا</title>
+    <title>مرصد التمويلات والمشاريع - موريتانيا</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 
@@ -88,6 +88,7 @@
             border-radius: var(--radius);
             margin: 20px 0;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            min-height: 350px; /* تحسين منع القفز */
         }
 
         table {
@@ -113,6 +114,8 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.06);
             border-right: 6px solid var(--accent);
         }
+
+        #projects-list { min-height: 450px; }
 
         .progress-container {
             background: #e9ecef;
@@ -174,29 +177,22 @@
             .number { font-size: 1.1rem; }
             h1 { font-size: 1.1rem; }
         }
-		/* Verhindert das Springen der Seite beim Wechseln der Tabellenseiten */
-#projects-list {
-    min-height: 450px; 
-}
-.table-wrapper {
-    min-height: 350px;
-}
     </style>
 </head>
 <body>
 
 <header>
     <div class="header-gallery">
-        <img src="https://www.peches.gov.mr/IMG/jpg/radeflottartisanale.jpg" alt="Pêches">
-        <img src="https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2010/12/close-up_of_the_richat_structure/10279708-2-eng-GB/Close-up_of_the_Richat_structure_pillars.jpg" alt="Richat">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Chinguetti_old_town.jpg" alt="Chinguetti">
-        <img src="https://t3.ftcdn.net/jpg/02/06/13/90/360_F_206139065_H0Pu1fJ0rpKHfEI5ZuRBYz6xnJvF34SA.jpg" alt="Camel">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Babab%C3%A9.jpg" alt="Bababé">
+        <img src="https://www.peches.gov.mr/IMG/jpg/radeflottartisanale.jpg" alt="Pêches" height="55" loading="lazy">
+        <img src="https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2010/12/close-up_of_the_richat_structure/10279708-2-eng-GB/Close-up_of_the_Richat_structure_pillars.jpg" alt="Richat" height="55" loading="lazy">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Chinguetti_old_town.jpg" alt="Chinguetti" height="55" loading="lazy">
+        <img src="https://t3.ftcdn.net/jpg/02/06/13/90/360_F_206139065_H0Pu1fJ0rpKHfEI5ZuRBYz6xnJvF34SA.jpg" alt="Camel" height="55" loading="lazy">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Babab%C3%A9.jpg" alt="Bababé" height="55" loading="lazy">
     </div>
 </header>
 
 <div class="content">
-    <h1>مرصد التمو يلات والمشاريع - موريتانيا</h1>
+    <h1>مرصد التمويلات والمشاريع - موريتانيا</h1>
     
     <div class="countdown">
         <div class="box"><span class="number" id="days">0</span><span class="label">يوم</span></div>
@@ -215,7 +211,7 @@
     <section>
         <h2>💰 جدول أموال المساعدات والتمويلات</h2>
         <div class="alert-info">
-            🇲🇷 تجاوزت المساعدات والقروض الممنوحة لموريتانيا منذ منتصف عام 2019 حاجز 2.2 مليار يورو. <br>
+            🇲🇷 تجاوزت المساعدات والقروض الممنوحة لموريتانيا منذ منتصف عام 2019 حاجز 2.3 مليار يورو. <br>
             📧 البريد الإلكتروني: <a href="mailto:fairmauritania@gmail.com">fairmauritania@gmail.com</a>
         </div>
 
@@ -230,8 +226,7 @@
                         <th>المصدر</th>
                     </tr>
                 </thead>
-                <tbody id="funding-body">
-                    </tbody>
+                <tbody id="funding-body"></tbody>
                 <tfoot>
                     <tr style="background: #fdf2f2; font-weight: bold; border-top: 2px solid #d32f2f;">
                         <td colspan="2">إجمالي التمويلات الموثقة</td>
@@ -256,17 +251,17 @@
                         <th>الدولة المانحة</th>
                     </tr>
                 </thead>
-                <tbody id="csa-body">
-                    </tbody>
+                <tbody id="csa-body"></tbody>
                 <tfoot>
                     <tr style="background:#eef2ff; font-weight:bold;">
                         <td colspan="2">إجمالي المساعدات الغذائية</td>
-                        <td id="csa-total">0</td>
+                        <td id="csa-total" style="text-align:right;">0</td>
                         <td>طن</td>
                     </tr>
                 </tfoot>
             </table>
         </div>
+        <div id="csa-pagination" class="pagination"></div>
     </section>
 
     <div class="footer-counter">
@@ -344,15 +339,26 @@ const fundingData = [
     { date: "26.07.2019", donor: "البنك الدولي", amount: 50000000, goal: "دعم الإصلاحات الاقتصادية والمالية", official: "المختار ولد أجاي", source: "AMI", link: "https://www.ami.mr/archives/100636" }
 	];
 
+
 const csaData = [
     { date: "02.12.2025", item: "الأرز", qty: 13000, country: "جمهورية كوريا" },
-    { date: "25.03.2025", item: "الأرز", qty: 5354, country: "اليابان" },
-    { date: "12.11.2024", item: "الأرز", qty: 6720, country: "جمهورية كوريا" },
-    { date: "04.11.2022", item: "الأرز", qty: 3567, country: "اليابان" },
-    { date: "29.10.2021", item: "الأسمدة", qty: 5500, country: "الجزائر" }
+    { date: "25.03.2025", item: "شحنة من الأرز", qty: 5354, country: "اليابان" },
+    { date: "12.11.2024", item: "شحنة من الأرز", qty: 6720, country: "جمهورية كوريا" },
+    { date: "04.11.2022", item: "شحنة من الأرز", qty: 3567, country: "اليابان" },
+    { date: "29.10.2021", item: "الأسمدة", qty: 5500, country: "الجزائر" },
+    { date: "22.10.2021", item: "شحنة من الأرز", qty: 3273, country: "اليابان" },
+    { date: "25.01.2021", item: "شحنة من الأرز", qty: 5979, country: "اليابان" },
+    { date: "05.03.2020", item: "شحنة من الأرز", qty: 6009, country: "اليابان" },
+    { date: "18.03.2019", item: "شحنة من الأرز", qty: 7752, country: "اليابان" }
 ];
 
 // === 2. وظائف التشغيل ===
+
+let currentProjPage = 1;
+let currentFundPage = 1;
+let currentCSAPage = 1;
+const projsPerPage = 3;
+const fundsPerPage = 5;
 
 // العداد التنازلي
 function initCountdown() {
@@ -368,10 +374,7 @@ function initCountdown() {
     }, 1000);
 }
 
-// رندرة المشاريع مع الترقيم
-let currentProjPage = 1;
-const projsPerPage = 3;
-
+// رندرة المشاريع
 function renderProjects() {
     const container = document.getElementById("projects-list");
     container.innerHTML = "";
@@ -404,9 +407,6 @@ function renderProjects() {
 }
 
 // رندرة التمويل
-let currentFundPage = 1;
-const fundsPerPage = 5;
-
 function renderFunding() {
     const body = document.getElementById("funding-body");
     body.innerHTML = "";
@@ -419,7 +419,7 @@ function renderFunding() {
             <tr>
                 <td>${f.date}</td>
                 <td>${f.donor}</td>
-                <td>${f.amount.toLocaleString()}</td>
+                <td style="text-align:right; font-weight:bold;">${f.amount.toLocaleString()}</td>
                 <td>${f.goal}</td>
                 <td><a href="${f.link}" target="_blank">${f.source}</a></td>
             </tr>
@@ -435,35 +435,61 @@ function renderFunding() {
     });
 }
 
-// مساعدات CSA
+// رندرة المساعدات الغذائية المحسنة
 function renderCSA() {
     const body = document.getElementById("csa-body");
-    let total = 0;
-    csaData.forEach(d => {
-        total += d.qty;
-        body.innerHTML += `<tr><td>${d.date}</td><td>${d.item}</td><td>${d.qty.toLocaleString()}</td><td>${d.country}</td></tr>`;
+    if (!body) return;
+    
+    body.innerHTML = "";
+    const start = (currentCSAPage - 1) * fundsPerPage;
+    const end = start + fundsPerPage;
+    const items = csaData.slice(start, end);
+
+    items.forEach(d => {
+        body.innerHTML += `
+            <tr>
+                <td>${d.date}</td>
+                <td>${d.item}</td>
+                <td style="text-align:right; font-weight:bold;">${d.qty.toLocaleString()}</td>
+                <td>${d.country}</td>
+            </tr>`;
     });
+
+    const total = csaData.reduce((sum, d) => sum + d.qty, 0);
     document.getElementById("csa-total").innerText = total.toLocaleString();
+
+    updatePagination("csa-pagination", csaData.length, fundsPerPage, currentCSAPage, (page) => {
+        currentCSAPage = page;
+        renderCSA();
+    });
 }
 
-// نظام الترقيم العام
+// نظام الترقيم المطور
 function updatePagination(navId, totalItems, perPage, current, callback) {
     const nav = document.getElementById(navId);
+    if (!nav) return;
+    
     nav.innerHTML = "";
     const pages = Math.ceil(totalItems / perPage);
+    
     for (let i = 1; i <= pages; i++) {
         const btn = document.createElement("button");
         btn.innerText = i;
         if (i === current) btn.className = "active";
-        btn.onclick = () => {
+        
+        btn.onclick = (e) => {
+            e.preventDefault();
             callback(i);
-            window.scrollTo({ behavior: 'smooth' });
+            const parentSection = nav.closest('section');
+            if (parentSection) {
+                parentSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         };
         nav.appendChild(btn);
     }
 }
 
-// الإطلاق عند التحميل
+// الإطلاق
 window.onload = () => {
     initCountdown();
     renderProjects();
